@@ -1,0 +1,36 @@
+# Go build output
+bin/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+
+# Go modules cache
+vendor/
+
+# IDE/editor
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Database
+jing_admin.db
+*.sqlite
+*.db
+
+# Logs
+logs/
+*.log
+
+# Test coverage
+coverage/
+
+# Env files
+.env*

@@ -1,0 +1,11 @@
+@import './base.css';
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+  transition: all var(--duration-normal) ease;
+}
+
+a:hover {
+  color: var(--primary-hover);
+}

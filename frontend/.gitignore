@@ -1,0 +1,54 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Node modules
+node_modules/
+
+# Build output
+dist/
+dist-ssr/
+coverage/
+
+# Local env files
+.env*
+*.local
+
+# Cypress
+/cypress/videos/
+/cypress/screenshots/
+
+# Editor directories and files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# TypeScript build info
+*.tsbuildinfo
+
+# Mac
+.DS_Store
+
+# Test snapshots
+__snapshots__/
+
+# VSCode settings (keep recommended extensions)
+!.vscode/extensions.json
+
+# npm cache
+.npm/
+
+# Prettier
+.prettier*
+
+# Git attributes
+.gitattributes
