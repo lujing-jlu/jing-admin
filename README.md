@@ -94,7 +94,6 @@ MIT License
 ## 联系与支持 | Contact & Support
 
 - GitHub Issues
-- Email: admin@jingadmin.com
 
 ---
 
