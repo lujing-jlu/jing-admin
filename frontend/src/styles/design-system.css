@@ -14,8 +14,8 @@
   --bg-page: #f8fafc;
   --bg-card: #ffffff;
   --bg-secondary: #f1f5f9;
-  --bg-hover: rgba(59, 130, 246, 0.08);
-  --bg-selected: rgba(59, 130, 246, 0.12);
+  --bg-hover: rgba(0, 0, 0, 0.05);
+  --bg-selected: rgba(0, 0, 0, 0.08);
   --bg-disabled: #e2e8f0;
   --bg-sidebar: rgba(255, 255, 255, 0.8);
   --bg-header: rgba(255, 255, 255, 0.8);
@@ -30,7 +30,7 @@
   /* 边框颜色 */
   --border-primary: #e2e8f0;
   --border-secondary: #f1f5f9;
-  --border-hover: rgba(59, 130, 246, 0.5);
+  --border-hover: rgba(0, 0, 0, 0.2);
 
   /* 功能色 */
   --success: #10b981;
@@ -101,33 +101,33 @@
 
 /* ========== 深色主题 ========== */
 html.dark {
-  /* 主题色 */
-  --primary-color: #60a5fa;
-  --primary-light: #93c5fd;
-  --primary-dark: #3b82f6;
-  --primary-hover: #3b82f6;
+  /* 主题色 - 黑白灰系 */
+  --primary-color: #ffffff;
+  --primary-light: #f5f5f5;
+  --primary-dark: #e5e5e5;
+  --primary-hover: #f0f0f0;
 
   /* 背景色 */
-  --bg-page: #0f172a;
-  --bg-card: #1e293b;
-  --bg-secondary: #334155;
-  --bg-hover: rgba(59, 130, 246, 0.15);
-  --bg-selected: rgba(59, 130, 246, 0.2);
-  --bg-disabled: #475569;
-  --bg-sidebar: rgba(30, 41, 59, 0.8);
-  --bg-header: rgba(30, 41, 59, 0.8);
+  --bg-page: #0a0a0a;
+  --bg-card: #1a1a1a;
+  --bg-secondary: #2a2a2a;
+  --bg-hover: rgba(255, 255, 255, 0.08);
+  --bg-selected: rgba(255, 255, 255, 0.12);
+  --bg-disabled: #3a3a3a;
+  --bg-sidebar: rgba(26, 26, 26, 0.9);
+  --bg-header: rgba(26, 26, 26, 0.9);
 
   /* 文字颜色 */
-  --text-primary: #f8fafc;
-  --text-secondary: #cbd5e1;
-  --text-tertiary: #94a3b8;
-  --text-disabled: #64748b;
+  --text-primary: #ffffff;
+  --text-secondary: #d4d4d4;
+  --text-tertiary: #a3a3a3;
+  --text-disabled: #737373;
   --text-white: #ffffff;
 
   /* 边框颜色 */
-  --border-primary: #334155;
-  --border-secondary: #1e293b;
-  --border-hover: rgba(96, 165, 250, 0.5);
+  --border-primary: #404040;
+  --border-secondary: #2a2a2a;
+  --border-hover: rgba(255, 255, 255, 0.3);
 
   /* 功能色保持不变 */
   
@@ -273,25 +273,78 @@ body {
   --el-border-radius-circle: 50%;
 }
 
-.dark-theme {
-  /* 深色模式下的Element Plus变量覆盖 */
-  --el-bg-color: var(--bg-primary);
-  --el-bg-color-page: var(--bg-secondary);
-  --el-bg-color-overlay: var(--bg-card);
-  --el-text-color-primary: var(--text-primary);
-  --el-text-color-regular: var(--text-secondary);
-  --el-text-color-secondary: var(--text-tertiary);
-  --el-text-color-placeholder: var(--text-tertiary);
-  --el-text-color-disabled: var(--text-disabled);
-  --el-border-color: var(--border-primary);
-  --el-border-color-light: var(--border-secondary);
-  --el-border-color-lighter: var(--border-secondary);
-  --el-border-color-extra-light: var(--border-secondary);
-  --el-fill-color: var(--bg-tertiary);
-  --el-fill-color-light: var(--bg-secondary);
-  --el-fill-color-lighter: var(--bg-secondary);
+html.dark {
+  /* 深色模式下的Element Plus变量覆盖 - 按钮保持蓝色 */
+  --el-color-primary: #3b82f6;
+  --el-color-primary-light-3: #60a5fa;
+  --el-color-primary-light-5: rgba(59, 130, 246, 0.5);
+  --el-color-primary-light-7: rgba(59, 130, 246, 0.3);
+  --el-color-primary-light-8: rgba(59, 130, 246, 0.2);
+  --el-color-primary-light-9: rgba(59, 130, 246, 0.1);
+  --el-color-primary-dark-2: #2563eb;
+
+  --el-bg-color: #1a1a1a;
+  --el-bg-color-page: #0a0a0a;
+  --el-bg-color-overlay: #2a2a2a;
+  --el-text-color-primary: #ffffff;
+  --el-text-color-regular: #d4d4d4;
+  --el-text-color-secondary: #a3a3a3;
+  --el-text-color-placeholder: #737373;
+  --el-text-color-disabled: #525252;
+  --el-border-color: #404040;
+  --el-border-color-light: #2a2a2a;
+  --el-border-color-lighter: #262626;
+  --el-border-color-extra-light: #1f1f1f;
+  --el-fill-color: #2a2a2a;
+  --el-fill-color-light: #262626;
+  --el-fill-color-lighter: #1f1f1f;
+
+  /* 深色模式菜单变量 - 保持白色 */
+  --menu-active: #ffffff;
+  --menu-hover-text: #ffffff;
+  --menu-active-text: #ffffff;
+
+  /* 深色模式下的主题色覆盖 - 非按钮元素使用白色 */
+  --primary-color: #ffffff;
+  --primary-light: #f5f5f5;
+  --primary-dark: #e5e5e5;
+  --primary-hover: #f0f0f0;
   --el-fill-color-extra-light: var(--bg-secondary);
   --el-fill-color-blank: var(--bg-primary);
+}
+
+/* 深色模式下的按钮特殊样式 */
+html.dark .el-button--primary {
+  background-color: #3b82f6 !important;
+  border-color: #3b82f6 !important;
+  color: #ffffff !important;
+}
+
+html.dark .el-button--primary:hover {
+  background-color: #2563eb !important;
+  border-color: #2563eb !important;
+}
+
+html.dark .el-button--primary:active {
+  background-color: #1d4ed8 !important;
+  border-color: #1d4ed8 !important;
+}
+
+/* 确保按钮样式优先级 */
+html.dark .el-button.el-button--primary {
+  background-color: #3b82f6 !important;
+  border-color: #3b82f6 !important;
+  color: #ffffff !important;
+}
+
+html.dark .el-button.el-button--primary:hover {
+  background-color: #2563eb !important;
+  border-color: #2563eb !important;
+}
+
+html.dark .el-button.el-button--primary:active {
+  background-color: #1d4ed8 !important;
+  border-color: #1d4ed8 !important;
 }
 
 /* ========== 表格组件样式 ========== */

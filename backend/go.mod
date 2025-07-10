@@ -1,6 +1,6 @@
 module jing-admin/backend
 
-go 1.24
+go 1.18
 
 require (
 	github.com/disintegration/imaging v1.6.2
