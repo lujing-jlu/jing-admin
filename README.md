@@ -10,6 +10,12 @@ Jing Admin 是一个基于 Vue3 + Element Plus + TypeScript + Go + Gin + SQLite 
 
 Jing Admin is a modern open-source admin system based on Vue3, Element Plus, TypeScript, Go, Gin, and SQLite. It features user/role/permission management, logs, system config, file upload, batch import/export, and more. Ideal for SMEs, teams, or individuals to quickly build admin platforms.
 
+## 系统截图 | Screenshots
+
+![Jing Admin Screenshot](screenshot.png)
+
+*现代化的管理后台界面，支持深色模式和响应式布局*
+
 ---
 
 ## 功能特性 | Features
