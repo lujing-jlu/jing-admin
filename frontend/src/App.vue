@@ -1,8 +1,14 @@
 <template>
   <div id="app">
-    <el-container class="layout-container">
-      <!-- 简洁顶部导航栏 -->
-      <template v-if="route.path !== '/login'">
+    <!-- 登录页面独立布局 -->
+    <template v-if="isLoginPage">
+      <router-view />
+    </template>
+
+    <!-- 主应用布局 -->
+    <template v-else>
+      <el-container class="layout-container">
+        <!-- 简洁顶部导航栏 -->
         <el-header class="header">
           <div class="header-content">
             <div class="logo-section slide-in-left">
@@ -59,9 +65,8 @@
             </div>
           </div>
         </el-header>
-      </template>
-      
-      <el-container class="main-container">
+
+        <el-container class="main-container">
         <!-- 简洁侧边栏 -->
         <el-aside class="sidebar" :width="'220px'">
           <el-menu
@@ -118,8 +123,9 @@
             </transition>
           </router-view>
         </el-main>
+        </el-container>
       </el-container>
-    </el-container>
+    </template>
   </div>
 </template>
 
@@ -143,6 +149,9 @@ const themeStore = useThemeStore()
 const authStore = useAuthStore()
 const route = useRoute()
 const router = useRouter()
+
+// 判断是否为登录页面
+const isLoginPage = computed(() => route.path === '/login')
 
 // 计算当前活动的菜单项
 const activeMenuIndex = computed(() => {

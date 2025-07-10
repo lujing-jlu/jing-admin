@@ -87,8 +87,14 @@ const router = createRouter({
     {
       path: '/login',
       name: 'login',
-      component: () => import('../views/LoginView.vue'),
-      meta: { title: '登录', requiresGuest: true }
+      component: () => import('../layouts/AuthLayout.vue'),
+      meta: { title: '登录', requiresGuest: true },
+      children: [
+        {
+          path: '',
+          component: () => import('../views/LoginView.vue')
+        }
+      ]
     },
     // 404页面
     {

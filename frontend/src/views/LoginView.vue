@@ -1,10 +1,5 @@
 <template>
-  <div class="login-container">
-    <div class="login-background">
-      <div class="background-pattern"></div>
-    </div>
-    
-    <div class="login-card">
+  <div class="login-card">
       <div class="card-header">
         <div class="logo-section">
           <el-icon class="logo-icon" size="32"><House /></el-icon>
@@ -163,7 +158,6 @@
         </div>
       </div>
     </div>
-  </div>
 </template>
 
 <script setup lang="ts">
@@ -364,42 +358,7 @@ onBeforeUnmount(() => {
 </script>
 
 <style scoped>
-.login-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-}
-
-.login-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-.background-pattern {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
-  animation: float 20s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%, 100% { transform: translate(0, 0) rotate(0deg); }
-  33% { transform: translate(10px, -10px) rotate(120deg); }
-  66% { transform: translate(-5px, 15px) rotate(240deg); }
-}
+/* 登录卡片容器样式已移至 AuthLayout */
 
 .login-card {
   position: relative;
@@ -412,6 +371,14 @@ onBeforeUnmount(() => {
   max-width: 420px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
   border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+/* 深色模式下的登录卡片 */
+html.dark .login-card {
+  background: rgba(26, 26, 26, 0.95);
+  border: 1px solid rgba(64, 64, 64, 0.3);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
 }
 
 .card-header {
@@ -442,10 +409,24 @@ onBeforeUnmount(() => {
   background-clip: text;
 }
 
+/* 深色模式下的标题 */
+html.dark .system-title {
+  color: #ffffff;
+  background: linear-gradient(135deg, #60a5fa, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 .subtitle {
   margin: 0;
   color: #718096;
   font-size: 14px;
+}
+
+/* 深色模式下的副标题 */
+html.dark .subtitle {
+  color: #a3a3a3;
 }
 
 .tab-switcher {
