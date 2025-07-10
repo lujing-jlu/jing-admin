@@ -1,13 +1,15 @@
 <template>
-  <div id="app">
-    <!-- 登录页面独立布局 -->
-    <template v-if="isLoginPage">
-      <router-view />
-    </template>
+  <div id="app" :class="{ 'app-ready': appReady }">
+    <!-- 使用路由级别的布局分离 -->
+    <router-view v-slot="{ Component, route }">
+      <!-- 登录页面使用独立布局 -->
+      <template v-if="route.path === '/login'">
+        <component :is="Component" />
+      </template>
 
-    <!-- 主应用布局 -->
-    <template v-else>
-      <el-container class="layout-container">
+      <!-- 主应用布局 -->
+      <template v-else>
+        <el-container class="layout-container">
         <!-- 简洁顶部导航栏 -->
         <el-header class="header">
           <div class="header-content">
@@ -112,37 +114,37 @@
         
         <!-- 主内容区域 -->
         <el-main class="main-content">
-          <router-view v-slot="{ Component }">
-            <transition 
-              name="fade-transform" 
-              mode="out-in"
-            >
-              <keep-alive>
-                <component :is="Component" />
-              </keep-alive>
-            </transition>
-          </router-view>
+          <transition
+            name="fade-transform"
+            mode="out-in"
+          >
+            <keep-alive>
+              <component :is="Component" />
+            </keep-alive>
+          </transition>
         </el-main>
         </el-container>
-      </el-container>
-    </template>
+        </el-container>
+      </template>
+    </router-view>
   </div>
 </template>
 
 <script setup lang="ts">
-import { onMounted, computed } from 'vue'
+import { onMounted, computed, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useThemeStore } from './stores/theme'
 import { useAuthStore } from './stores/auth'
-import { 
-  User, 
-  Setting, 
-  House, 
-  Bell, 
+import {
+  User,
+  Setting,
+  House,
+  Bell,
   DataAnalysis,
   Moon,
   Sunny,
-  HomeFilled
+  HomeFilled,
+  Loading
 } from '@element-plus/icons-vue'
 
 const themeStore = useThemeStore()
@@ -150,8 +152,8 @@ const authStore = useAuthStore()
 const route = useRoute()
 const router = useRouter()
 
-// 判断是否为登录页面
-const isLoginPage = computed(() => route.path === '/login')
+// 应用准备状态
+const appReady = ref(false)
 
 // 计算当前活动的菜单项
 const activeMenuIndex = computed(() => {
@@ -174,13 +176,34 @@ function goToProfileAndChangePassword() {
   router.push('/profile?action=change-password')
 }
 
-onMounted(() => {
+onMounted(async () => {
+  // 初始化主题和认证
   themeStore.initTheme()
   authStore.initAuth()
+
+  // 确保DOM完全渲染后再显示
+  await new Promise(resolve => {
+    requestAnimationFrame(() => {
+      setTimeout(() => {
+        appReady.value = true
+        resolve(undefined)
+      }, 50)
+    })
+  })
 })
 </script>
 
 <style scoped>
+/* 应用加载状态 - 防止闪烁 */
+#app {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+#app.app-ready {
+  opacity: 1;
+}
+
 .layout-container {
   height: 100vh;
   width: 100%;
